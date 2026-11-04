@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "argent": {
+      "command": "argent",
+      "args": [
+        "mcp"
+      ],
+      "trust": true
+    },
+    "cua-driver": {
+      "command": "/Users/andrew/.local/bin/cua-driver",
+      "args": ["mcp"]
+    }
+  }
+}

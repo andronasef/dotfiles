@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────────────────────
+#  Skill sources — the ONLY place skills are listed.
+#  Run ./sync.sh to install/update everything here to the latest version.
+#  Remove a line + re-run sync.sh to uninstall it.
+#
+#  kind     source                 target
+#  ──────   ────────────────────   ─────────────────────────────────
+#  skills   owner/repo[#ref]       folder   (every skill in it, any depth; "." = whole repo)
+#  skill    owner/repo[#ref]       path/to/one/skill-folder   (just one skill)
+#  plugin       owner/repo[#ref]   plugin-name@marketplace-name   (Claude Code)
+#  agy-plugin   owner/repo         folder-name                    (Antigravity)
+#
+#  - source: GitHub "owner/repo" or any full git URL (https://… or git@…)
+#  - #ref:   optional branch or tag to pin; default = repo's default branch
+#  - skill/skills: cloned to ~/.cache/dotfiles, symlinked into ~/.claude/skills
+#  - plugin: installed with the `claude plugin` CLI (marketplace + install/update)
+# ─────────────────────────────────────────────────────────────
+
+# Skill repos — every skill in each repo is installed
+skills   amElnagdy/delegate-skills             skills
+skills   anthropics/skills                     skills
+skills   dart-lang/skills                      skills
+skills   emilkowalski/skills                   skills
+skills   eronred/aso-skills                    skills
+skills   flutter/skills                        skills
+skills   heygen-com/hyperframes                skills
+skills   latent-spaces/brag                    skills
+skills   mattpocock/skills                     skills
+skills   open-gsd/gsd-core                     skills
+skills   ParthJadhav/app-store-screenshots     skills
+skills   pbakaus/impeccable                    .claude/skills
+skills   petergyang/no-ai-slop                 skills
+skills   safaiyeh/app-store-review-skill       .
+skills   software-mansion/argent               packages/skills/skills
+skills   trycua/cua                            libs/cua-driver/rust/Skills
+skills   vercel-labs/skills                    skills
+skills   xingkongliang/skills-manager          skills
+
+# Claude Code plugins  (source = the marketplace repo)
+plugin   anthropics/claude-plugins-official    skill-creator@claude-plugins-official
+plugin   anthropics/claude-plugins-official    superpowers@claude-plugins-official
+plugin   anthropics/claude-plugins-official    expo@claude-plugins-official
+plugin   obra/superpowers-marketplace          superpowers@superpowers-marketplace
+plugin   DietrichGebert/ponytail               ponytail@ponytail
+plugin   6m1w/claude-sound-fx                  sound-fx@claude-sound-fx
+plugin   firebase/firebase-tools               firebase@firebase
+plugin   AgriciDaniel/claude-seo               claude-seo@agricidaniel-claude-seo
+
+# Antigravity (agy) plugins
+agy-plugin  DietrichGebert/ponytail           ponytail
+agy-plugin  obra/superpowers                  superpowers
+
+# Codex plugins live in home/.codex/config.toml (already tracked)
+
+# Note: GSD's installer also adds agents/hooks (~/.claude/gsd-core) and argent's
+# `argent init` adds its MCP + rules. These lines only manage the skills.
