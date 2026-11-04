@@ -2,7 +2,7 @@
 *.bak-*
 .env
 # never commit logins/tokens
-home/.config/gh/hosts.yml
-home/.ssh/id_*
-home/.ssh/known_hosts*
-home/.config/karabiner/automatic_backups/
+mac/.config/gh/hosts.yml
+mac/.ssh/id_*
+mac/.ssh/known_hosts*
+mac/.config/karabiner/automatic_backups/

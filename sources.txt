@@ -50,7 +50,7 @@ plugin   AgriciDaniel/claude-seo               claude-seo@agricidaniel-claude-se
 agy-plugin  DietrichGebert/ponytail           ponytail
 agy-plugin  obra/superpowers                  superpowers
 
-# Codex plugins live in home/.codex/config.toml (already tracked)
+# Codex plugins live in mac/.codex/config.toml (already tracked)
 
 # Note: GSD's installer also adds agents/hooks (~/.claude/gsd-core) and argent's
 # `argent init` adds its MCP + rules. These lines only manage the skills.

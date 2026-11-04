@@ -12,7 +12,8 @@ dotfiles/
 ├── Brewfile      # brew bundle
 ├── agents/       # my subagents      → ~/.claude/agents/
 ├── rules/        # always-on rules   → ~/.claude/rules/
-└── home/         # mirrors ~  (zsh, Zed, VS Code, Karabiner, gh, Claude/Codex/Gemini settings…)
+├── mac/          # mirrors ~ on macOS  (zsh, Zed, VS Code, Karabiner, gh, Claude/Codex/Gemini settings…)
+└── windows/      # mirrors %USERPROFILE% on Windows (empty for now)
 ```
 
 ## Setup (new Mac)
@@ -34,7 +35,7 @@ brew bundle
 | Add a skill repo | add a line to `sources.txt`, run `./sync.sh` |
 | Remove one | delete its line, run `./sync.sh` (its skills get unlinked) |
 | Pin a version | `owner/repo#v1.2.0` in `sources.txt` |
-| Save a new app config | copy it under `home/` at the same path, run `./sync.sh` |
+| Save a new app config | copy it under `mac/` at the same path, run `./sync.sh` |
 | Refresh the Brewfile | `brew bundle dump --force` |
 
 ### `sources.txt` format
@@ -46,11 +47,11 @@ plugin      anthropics/claude-plugins-official  expo@claude-plugins-official   #
 agy-plugin  obra/superpowers                    superpowers     # Antigravity plugin (git clone)
 ```
 
-Sources can be GitHub `owner/repo` or any git URL. Codex plugins live in `home/.codex/config.toml`.
+Sources can be GitHub `owner/repo` or any git URL. Codex plugins live in `mac/.codex/config.toml`.
 
 ## What `sync.sh` does
 
-1. Symlinks every file in `home/` to the same path under `~`. A folder holding a `.dirlink` file is linked as a whole.
+1. Symlinks every file in `mac/` to the same path under `~`. A folder holding a `.dirlink` file is linked as a whole.
 2. Symlinks `CLAUDE.md` and `AGENTS.md` into `~/.claude/` (and `AGENTS.md` into `~/.codex/` and `~/.agents/`).
 3. Symlinks `agents/*.md` and `rules/*.md` into `~/.claude/`.
 4. Shallow-clones each source into `~/.cache/dotfiles/` and links every skill into `~/.claude/skills/<name>`. If two repos ship the same skill name, the first one listed wins.
@@ -62,4 +63,4 @@ A real file in the way is kept as `<name>.bak-<timestamp>`. Skills you made by h
 ## Never commit
 
 Logins and keys stay out of this repo: `~/.claude.json`, `~/.gemini/oauth_creds.json` and other token files, `~/.ssh` keys, `~/.config/gh/hosts.yml`, shell history, `.env` files.
-Because the configs in `home/` are symlinks, apps write straight into this repo. Check `git diff` before every commit.
+Because the configs in `mac/` are symlinks, apps write straight into this repo. Check `git diff` before every commit.

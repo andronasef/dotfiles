@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Sync this repo into your home folder:
-#   - links every file in home/ to the same path under ~ (a folder holding a
+#   - links every file in mac/ to the same path under ~ (a folder holding a
 #     .dirlink file is linked as a whole folder instead)
 #   - links CLAUDE.md, AGENTS.md, agents/*.md, rules/*.md
 #   - installs/updates every skill & plugin listed in sources.txt
@@ -61,9 +61,9 @@ prune_dir() {
   done
 }
 
-# ── 0. Dotfiles (home/ → ~) ─────────────────────────────────
-head_ "Dotfiles"
-HOME_SRC="$REPO_DIR/home"
+# ── 0. Dotfiles (mac/ → ~) ─────────────────────────────────
+head_ "Dotfiles (mac/ → ~)"
+HOME_SRC="$REPO_DIR/mac"
 if [ -d "$HOME_SRC" ]; then
   DIRLINKS="$(find "$HOME_SRC" -name .dirlink -exec dirname {} \;)"
   while IFS= read -r d; do
